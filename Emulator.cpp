@@ -15,6 +15,8 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x10:
     case 0x18:
     case 0x28:
+    case 0x38:
+    case 0x40:
         std::cout << "NOP";
         break;
     // loads a 16-bit value into the BC register pair
@@ -63,6 +65,7 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x0f:
         std::cout << "RRC";
         break;
+
     case 0x11:
         std::cout << "LXI D,#$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[2] << (int)code[1];
         opbytes = 3;
@@ -108,6 +111,7 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x1f:
         std::cout << "RAR";
         break;
+
     case 0x20:
         std::cout << "RIM";
         break;
@@ -158,6 +162,7 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x2f:
         std::cout << "CMA";
         break;
+
     case 0x30:
         std::cout << "SIM";
         break;
@@ -177,6 +182,43 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
         break;
     case 0x35:
         std::cout << "DCR M";
+        break;
+    case 0x36:
+        std::cout << "MVI M,#$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0x37:
+        std::cout << "STC";
+        break;
+    case 0x39:
+        std::cout << "DAD SP";
+        break;
+    case 0x3a:
+        std::cout << "LDA $";
+        opbytes = 3;
+        break;
+    case 0x3b:
+        std::cout << "DCX SP";
+        break;
+    case 0x3c:
+        std::cout << "INR A";
+        break;
+    case 0x3d:
+        std::cout << "DCR A";
+        break;
+    case 0x3e:
+        std::cout << "MVI A,#$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0x3f:
+        std::cout << "CMC";
+        break;
+
+    // case 0x40:
+    //     std::cout << "MOV B,B";
+    //     break;
+    case 0x41:
+        std::cout << "MOV B,C";
         break;
     }
 }
