@@ -17,6 +17,7 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x28:
     case 0x38:
     case 0x40:
+    case 0x49:
         std::cout << "NOP";
         break;
     // loads a 16-bit value into the BC register pair
@@ -219,6 +220,48 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     //     break;
     case 0x41:
         std::cout << "MOV B,C";
+        break;
+    case 0x42:
+        std::cout << "MOV B, D";
+        break;
+    case 0x43:
+        std::cout << "MOV B,E";
+        break;
+    case 0x44:
+        std::cout << "MOV B,H";
+        break;
+    case 0x45:
+        std::cout << "MOV B,L";
+        break;
+    case 0x46:
+        std::cout << "MOV B,M";
+        break;
+    case 0x47:
+        std::cout << "MOV B,A";
+        break;
+    case 0x48:
+        std::cout << "MOV C,B";
+        break;
+    // case 0x49:
+    //     std::cout << "MOV C,C";
+    //     break;
+    case 0x4a:
+        std::cout << "MOV C,D";
+        break;
+    case 0x4b:
+        std::cout << "MOV C,E";
+        break;
+    case 0x4c:
+        std::cout << "MOV C,H";
+        break;
+    case 0x4d:
+        std::cout << "MOV C,L";
+        break;
+    case 0x4e:
+        std::cout << "MOV C,M";
+        break;
+    case 0x4f:
+        std::cout << "MOV C,A";
         break;
     }
 }
