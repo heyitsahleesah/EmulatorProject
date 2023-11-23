@@ -414,5 +414,54 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
         // case 0x7f:
         //     std::cout << "MOV A,A";
         //     break;
+
+    case 0x80:
+        std::cout << "ADD B";
+        break;
+    case 0x81:
+        std::cout << "ADD C";
+        break;
+    case 0x82:
+        std::cout << "ADD D";
+        break;
+    case 0x83:
+        std::cout << "ADD E";
+        break;
+    case 0x84:
+        std::cout << "ADD H";
+        break;
+    case 0x85:
+        std::cout << "ADD L";
+        break;
+    case 0x86:
+        std::cout << "ADD M";
+        break;
+    case 0x87:
+        std::cout << "ADD A";
+        break;
+    case 0x88:
+        std::cout << "ADD B";
+        break;
+    case 0x89:
+        std::cout << "ADC C";
+        break;
+    case 0x8a:
+        std::cout << "ADC D";
+        break;
+    case 0x8b:
+        std::cout << "ADC E";
+        break;
+    case 0x8c:
+        std::cout << "ADC H";
+        break;
+    case 0x8d:
+        std::cout << "ADC L";
+        break;
+    case 0x8e:
+        std::cout << "ADC M";
+        break;
+    case 0x8f:
+        std::cout << "ADC A";
+        break;
     }
 }
