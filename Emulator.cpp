@@ -512,5 +512,54 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x9f:
         std::cout << "SBB A";
         break;
+
+    case 0xa0:
+        std::cout << "ANA B";
+        break;
+    case 0xa1:
+        std::cout << "ANA C";
+        break;
+    case 0xa2:
+        std::cout << "ANA D";
+        break;
+    case 0xa3:
+        std::cout << "ANA E";
+        break;
+    case 0xa4:
+        std::cout << "ANA H";
+        break;
+    case 0xa5:
+        std::cout << "ANA L";
+        break;
+    case 0xa6:
+        std::cout << "ANA M";
+        break;
+    case 0xa7:
+        std::cout << "ANA A";
+        break;
+    case 0xa8:
+        std::cout << "XRA B";
+        break;
+    case 0xa9:
+        std::cout << "XRA C";
+        break;
+    case 0xaa:
+        std::cout << "XRA D";
+        break;
+    case 0xab:
+        std::cout << "XRA E";
+        break;
+    case 0xac:
+        std::cout << "XRA H";
+        break;
+    case 0xad:
+        std::cout << "XRA L";
+        break;
+    case 0xae:
+        std::cout << "XRA M";
+        break;
+    case 0xaf:
+        std::cout << "XRA A";
+        break;
     }
 }
