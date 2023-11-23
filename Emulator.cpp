@@ -463,5 +463,54 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x8f:
         std::cout << "ADC A";
         break;
+
+    case 0x90:
+        std::cout << "SUB B";
+        break;
+    case 0x91:
+        std::cout << "SUB C";
+        break;
+    case 0x92:
+        std::cout << "SUB D";
+        break;
+    case 0x93:
+        std::cout << "SUB E";
+        break;
+    case 0x94:
+        std::cout << "SUB H";
+        break;
+    case 0x95:
+        std::cout << "SUB L";
+        break;
+    case 0x96:
+        std::cout << "SUB M";
+        break;
+    case 0x97:
+        std::cout << "SUB A";
+        break;
+    case 0x98:
+        std::cout << "SBB B";
+        break;
+    case 0x99:
+        std::cout << "SBB C";
+        break;
+    case 0x9a:
+        std::cout << "SBB D";
+        break;
+    case 0x9b:
+        std::cout << "SBB E";
+        break;
+    case 0x9c:
+        std::cout << "SBB H";
+        break;
+    case 0x9d:
+        std::cout << "SBB L";
+        break;
+    case 0x9e:
+        std::cout << "SBB M";
+        break;
+    case 0x9f:
+        std::cout << "SBB A";
+        break;
     }
 }
