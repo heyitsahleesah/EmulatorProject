@@ -23,6 +23,8 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x64:
     case 0x7f:
     case 0xcb:
+    case 0xd9:
+    case 0xdd:
         std::cout << "NOP";
         break;
     // loads a 16-bit value into the BC register pair
@@ -664,6 +666,57 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
         break;
     case 0xcf:
         std::cout << "RST 1";
+        break;
+
+    case 0xd0:
+        std::cout << "RNC";
+        break;
+    case 0xd1:
+        std::cout << "POP D";
+        break;
+    case 0xd2:
+        std::cout << "JNC $" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xd3:
+        std::cout << "OUT #$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0xd4:
+        std::cout << "CNC $" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xd5:
+        std::cout << "PUSH D";
+        break;
+    case 0xd6:
+        std::cout << "SUI #$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0xd7:
+        std::cout << "RST 2";
+        break;
+    case 0xd8:
+        std::cout << "RC";
+        break;
+    case 0xda:
+        std::cout << "JC $" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xdb:
+        std::cout << "IN #$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0xdc:
+        std::cout << "CC $" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xde:
+        std::cout << "SBI #$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0xdf:
+        std::cout << "RST 3";
         break;
     }
 }
