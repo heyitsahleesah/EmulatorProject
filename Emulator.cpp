@@ -561,5 +561,54 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0xaf:
         std::cout << "XRA A";
         break;
+
+    case 0xb0:
+        std::cout << "ORA B";
+        break;
+    case 0xb1:
+        std::cout << "ORA C";
+        break;
+    case 0xb2:
+        std::cout << "ORA D";
+        break;
+    case 0xb3:
+        std::cout << "ORA E";
+        break;
+    case 0xb4:
+        std::cout << "ORA H";
+        break;
+    case 0xb5:
+        std::cout << "ORA L";
+        break;
+    case 0xb6:
+        std::cout << "ORA M";
+        break;
+    case 0xb7:
+        std::cout << "ORA A";
+        break;
+    case 0xb8:
+        std::cout << "CMP B";
+        break;
+    case 0xb9:
+        std::cout << "CMP C";
+        break;
+    case 0xba:
+        std::cout << "CMP D";
+        break;
+    case 0xbb:
+        std::cout << "CMP E";
+        break;
+    case 0xbc:
+        std::cout << "CMP H";
+        break;
+    case 0xbd:
+        std::cout << "CMP L";
+        break;
+    case 0xbe:
+        std::cout << "CMP M";
+        break;
+    case 0xbf:
+        std::cout << "CMP A";
+        break;
     }
 }
