@@ -22,6 +22,7 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
     case 0x5b:
     case 0x64:
     case 0x7f:
+    case 0xcb:
         std::cout << "NOP";
         break;
     // loads a 16-bit value into the BC register pair
@@ -226,7 +227,7 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
         std::cout << "MOV B,C";
         break;
     case 0x42:
-        std::cout << "MOV B, D";
+        std::cout << "MOV B,D";
         break;
     case 0x43:
         std::cout << "MOV B,E";
@@ -609,6 +610,60 @@ int Disassemble8080p(unsigned char *codebuffer, int pc)
         break;
     case 0xbf:
         std::cout << "CMP A";
+        break;
+
+    case 0xc0:
+        std::cout << "RNZ";
+        break;
+    case 0xc1:
+        std::cout << "POP B";
+        break;
+    case 0xc2:
+        std::cout << "JNZ $" << std::hex << std::setw(4) << std::setfill('0') << (int)code[2] << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xc3:
+        std::cout << "JMP $" << std::hex << std::setw(4) << std::setfill('0') << (int)code[2] << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xc4:
+        std::cout << "CNZ $" << std::hex << std::setw(4) << std::setfill('0') << (int)code[2] << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xc5:
+        std::cout << "PUSH B";
+        break;
+    case 0xc6:
+        std::cout << "ADI #$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0xc7:
+        std::cout << "RST 0";
+        break;
+    case 0xc8:
+        std::cout << "RZ";
+        break;
+    case 0xc9:
+        std::cout << "RET";
+        break;
+    case 0xca:
+        std::cout << "JZ $" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xcc:
+        std::cout << "CZ $" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xcd:
+        std::cout << "CALL $" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 3;
+        break;
+    case 0xce:
+        std::cout << "ACI #$" << std::hex << std::setw(2) << std::setfill('0') << (int)code[1];
+        opbytes = 2;
+        break;
+    case 0xcf:
+        std::cout << "RST 1";
         break;
     }
 }
